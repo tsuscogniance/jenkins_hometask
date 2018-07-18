@@ -45,7 +45,7 @@ class TestMeestLogistics(object):
         Select(countries_dropdown).select_by_visible_text('Ukraine')
 
         shipping_method_dropdown = self.chrome.find_element_by_css_selector(Locators.select_shipping_method)
-        Select(shipp@pytest.allure.step('Running test_check_dropdowns test')ing_method_dropdown).select_by_visible_text('Air')
+        Select(shipping_method_dropdown).select_by_visible_text('Air')
 
         # Check if "Shipping type" dropdown doesn't have validation message
         assert self.chrome.find_element_by_css_selector(Locators.shipping_type_error).text == ''
