@@ -35,7 +35,10 @@ class TestMeestLogistics(object):
         assert shipping_cost == '$ 0.00'
         assert total_cost == '$ 0.00'
         assert submit_button.is_enabled()
-
+        
+    def wrong_test(self):
+        assert 2 == 1
+        
     @pytest.allure.step('Running test_check_dropdowns test')
     def test_check_dropdowns(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
