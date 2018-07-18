@@ -16,6 +16,7 @@ class TestMeestLogistics(object):
         cls.chrome = webdriver.Chrome()
         cls.chrome.get("https://my.meest.us/en")
         cls.chrome.implicitly_wait(10)
+        
     @pytest.allure.step('Running test_empty_form_submit test')
     def test_empty_form_submit(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
@@ -62,6 +63,7 @@ class TestMeestLogistics(object):
         for shipping_type in shipping_types:
             assert shipping_type.text == self.shipping_type_list[i]
             i = i + 1
+            
     @pytest.allure.step('Running test_check_calculations test')
     def test_check_calculations(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
