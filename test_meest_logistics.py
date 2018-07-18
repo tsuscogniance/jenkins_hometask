@@ -16,7 +16,7 @@ class TestMeestLogistics(object):
         cls.chrome = webdriver.Chrome()
         cls.chrome.get("https://my.meest.us/en")
         cls.chrome.implicitly_wait(10)
-
+    @pytest.allure.step('Running test_empty_form_submit test')
     def test_empty_form_submit(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
         sleep(2)  # wait for scrolling page down
@@ -35,6 +35,7 @@ class TestMeestLogistics(object):
         assert total_cost == '$ 0.00'
         assert submit_button.is_enabled()
 
+    @pytest.allure.step('Running test_check_dropdowns test')
     def test_check_dropdowns(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
         sleep(2)  # wait for scrolling page down
@@ -43,7 +44,7 @@ class TestMeestLogistics(object):
         Select(countries_dropdown).select_by_visible_text('Ukraine')
 
         shipping_method_dropdown = self.chrome.find_element_by_css_selector(Locators.select_shipping_method)
-        Select(shipping_method_dropdown).select_by_visible_text('Air')
+        Select(shipp@pytest.allure.step('Running test_check_dropdowns test')ing_method_dropdown).select_by_visible_text('Air')
 
         # Check if "Shipping type" dropdown doesn't have validation message
         assert self.chrome.find_element_by_css_selector(Locators.shipping_type_error).text == ''
@@ -55,13 +56,13 @@ class TestMeestLogistics(object):
         # Check if default option is "Select shipping type"
         assert shipping_type_dropdown_select.text == self.shipping_type_list[0]
 
-        # Check if drop-down menu has pre-defined elements
+        # Check if drop-down m@pytest.allure.step('Running test_check_dropdowns test')enu has pre-defined elements
         shipping_types = self.chrome.find_elements_by_css_selector(Locators.all_shipping_types)
         i = 0
         for shipping_type in shipping_types:
             assert shipping_type.text == self.shipping_type_list[i]
             i = i + 1
-
+    @pytest.allure.step('Running test_check_calculations test')
     def test_check_calculations(self):
         self.__return__visible__element__(By.LINK_TEXT, Locators.calculation_link).click()
         sleep(2)  # wait for scrolling page down
