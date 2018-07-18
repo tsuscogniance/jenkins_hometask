@@ -36,7 +36,7 @@ class TestMeestLogistics(object):
         assert total_cost == '$ 0.00'
         assert submit_button.is_enabled()
         
-    def wrong_test(self):
+    def test_wrong_test(self):
         assert 2 == 1
         
     @pytest.allure.step('Running test_check_dropdowns test')
